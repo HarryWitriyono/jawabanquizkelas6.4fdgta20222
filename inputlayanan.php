@@ -9,4 +9,8 @@
 <?php if (isset($_POST['bSimpan'])) {
   $jenislayanan=$_POST['jenislayanan'];
   $kon=mysqli_connect("localhost","root","","simtvkabel");
-  $sql="insert into lya
+  $sql="insert into layanan (jenislayanan) values ('".$jenislayanan."')";
+  $q=mysqli_query($kon, $sql);
+  $r=mysqli_fetch_array($q);
+}
+?>
