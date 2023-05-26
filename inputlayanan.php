@@ -11,6 +11,5 @@
   $kon=mysqli_connect("localhost","root","","simtvkabel");
   $sql="insert into layanan (jenislayanan) values ('".$jenislayanan."')";
   $q=mysqli_query($kon, $sql);
-  $r=mysqli_fetch_array($q);
 }
 ?>

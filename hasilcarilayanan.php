@@ -1,8 +1,8 @@
-<?php $kodelayanan=$_GET['kCari'];
+<?php $kodelayanan=$_POST['kCari'];
 $kon=mysqli_connect("localhost","root","","simtvkabel");
 $sql="select * from layanan where kodelayanan like '%".$kodelayanan."%'";
 $q=mysqli_query($kon,$sql);
-$r=mysqli_query($q);
+$r=mysqli_fetch_array($q);
 ?>
 <table>
   <thead>
@@ -20,6 +20,6 @@ $r=mysqli_query($q);
         <a href="koreksilayanan.php?kodelayanan=<?php echo $r['kodelayanan'];?>">Koreksi</a>
         <a href="hapuslayanan.php?kodelayanan=<?php echo $r['kodelayanan'];?>" onclick="return confirm('Apakah yakin akan dihapus ?');">Hapus</a>
       </td>
-    </tr><?php } while ($r=mysqli_query($q)); ?>
+    </tr><?php } while ($r=mysqli_fetch_array($q)); ?>
   </tbody>
 </table>
